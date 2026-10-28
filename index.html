@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Investigación y divulgación sobre la presencia afroargentina en la historia, la cultura y la sociedad argentina.">
+<title>Afroargentinos y Historia Argentina</title>
+<style>
+:root{
+  --ink:#1f1d1a;
+  --paper:#f4efe6;
+  --paper2:#ebe2d4;
+  --accent:#8a3f2d;
+  --accent2:#2f5d50;
+  --muted:#6f685f;
+  --line:#cfc2b0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: Georgia, "Times New Roman", serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+}
+header{
+  position:sticky; top:0; z-index:20;
+  background:rgba(244,239,230,.96);
+  border-bottom:1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.nav{
+  max-width:1120px; margin:auto; padding:16px 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.brand{
+  font-weight:700; letter-spacing:.03em; font-size:1.05rem;
+}
+nav a{
+  color:var(--ink); text-decoration:none; margin-left:20px;
+  font-family:Arial, sans-serif; font-size:.92rem;
+}
+.hero{
+  min-height:68vh;
+  display:grid; place-items:center;
+  padding:90px 24px 70px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(138,63,45,.12), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(47,93,80,.11), transparent 28%),
+    linear-gradient(135deg, #f7f2e9 0%, #eee5d7 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{max-width:980px; text-align:center}
+.kicker{
+  font-family:Arial, sans-serif; text-transform:uppercase;
+  letter-spacing:.18em; font-size:.78rem; color:var(--accent);
+}
+h1{
+  font-size:clamp(2.5rem,6vw,5.6rem);
+  line-height:1.02; margin:18px 0 18px;
+  font-weight:500;
+}
+.hero p{
+  max-width:760px; margin:0 auto; color:var(--muted); font-size:1.18rem;
+}
+.cta{
+  display:inline-block; margin-top:30px; padding:12px 20px;
+  border:1px solid var(--ink); color:var(--ink); text-decoration:none;
+  font-family:Arial,sans-serif; font-size:.92rem;
+}
+section{max-width:1120px; margin:auto; padding:76px 24px}
+.section-head{
+  display:flex; align-items:end; justify-content:space-between; gap:24px;
+  border-bottom:1px solid var(--line); padding-bottom:16px; margin-bottom:30px;
+}
+h2{font-size:2.2rem; font-weight:500; margin:0}
+.section-head p{max-width:520px; color:var(--muted); margin:0}
+.controls{
+  display:flex; flex-wrap:wrap; gap:12px; margin-bottom:28px;
+  font-family:Arial,sans-serif;
+}
+input, select{
+  border:1px solid var(--line); background:#fbf8f2; padding:11px 12px;
+  font-size:.95rem; color:var(--ink);
+}
+input{min-width:260px; flex:1}
+.grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+}
+.card{
+  background:#f9f5ee; border:1px solid var(--line); padding:24px;
+  min-height:220px; cursor:pointer; transition:.2s ease;
+}
+.card:hover{transform:translateY(-3px); box-shadow:0 10px 26px rgba(0,0,0,.07)}
+.card .num{font-family:Arial,sans-serif; color:var(--accent); font-size:.78rem; letter-spacing:.12em}
+.card h3{font-size:1.35rem; margin:14px 0 10px}
+.card p{color:var(--muted); margin:0}
+.band{
+  background:var(--ink); color:var(--paper); max-width:none;
+}
+.band-inner{max-width:1120px; margin:auto; padding:76px 24px}
+.band h2{color:white}
+.band p{color:#d8d0c4}
+.two-col{display:grid; grid-template-columns:1.1fr .9fr; gap:52px}
+.quote{
+  border-left:3px solid var(--accent); padding-left:22px;
+  font-size:1.35rem; line-height:1.5;
+}
+.archive{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+}
+.archive-item{
+  border-top:2px solid var(--accent2); padding:18px 0;
+}
+.archive-item strong{display:block; margin-bottom:7px}
+.archive-item span{color:var(--muted)}
+footer{
+  padding:40px 24px; border-top:1px solid var(--line);
+  text-align:center; color:var(--muted); font-family:Arial,sans-serif; font-size:.9rem;
+}
+.modal{
+  display:none; position:fixed; inset:0; background:rgba(25,22,18,.75);
+  z-index:50; padding:24px; align-items:center; justify-content:center;
+}
+.modal.open{display:flex}
+.modal-box{
+  background:var(--paper); max-width:720px; width:100%; padding:34px;
+  border:1px solid var(--line); max-height:80vh; overflow:auto;
+}
+.close{
+  float:right; border:none; background:none; font-size:1.5rem; cursor:pointer;
+}
+@media(max-width:800px){
+  .grid,.archive,.two-col{grid-template-columns:1fr}
+  nav{display:none}
+  h1{font-size:3rem}
+}
+
+:root{--ink:#182b26;--paper:#f3f0e8;--paper2:#e7e3d8;--accent:#ac583e;--accent2:#264d40;--muted:#646b62;--line:#d0d3c6}
+body{font-family:Georgia,serif}header{background:rgba(243,240,232,.94)}.nav{max-width:1360px;padding:22px 5vw}.brand{max-width:260px;font-family:Arial,sans-serif;font-size:.8rem;line-height:1.45;letter-spacing:.12em}nav a{font-size:.8rem}nav a:hover{color:var(--accent)}
+.hero{position:relative;overflow:hidden;min-height:86vh;padding:100px 7vw 90px;background:#18372e;color:var(--paper);display:flex;align-items:center}.hero:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 5px,rgba(255,255,255,.025) 6px),radial-gradient(ellipse at 85% 10%,#52705a77,transparent 65%);pointer-events:none}.hero:after{content:'MEMORIA';position:absolute;right:-30px;bottom:12px;font:700 clamp(90px,17vw,240px) Arial,sans-serif;letter-spacing:-.07em;color:#ffffff06;pointer-events:none}.hero-inner{position:relative;z-index:1;max-width:1100px;text-align:left;width:100%;margin:auto}.hero .kicker{color:#d5b58b;font-size:.7rem}.hero h1{max-width:940px;font-size:clamp(3.3rem,7.5vw,7.4rem);line-height:1.02;letter-spacing:-.045em;margin:32px 0}.hero p{color:#d5ddd3;max-width:580px;margin:0;font-size:1.1rem}.cta{color:var(--paper);border-color:#a4b4a4;padding:17px 24px;margin-top:36px;transition:background .25s,color .25s}.cta:hover{background:var(--paper);color:var(--ink)}.hero-foot{margin-top:56px;display:flex;gap:24px;align-items:center;font:11px Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#adbdaf}.hero-foot:before{content:'';width:54px;height:1px;background:#adbdaf}
+section{max-width:1260px;padding:100px 5vw;scroll-margin-top:100px}.section-head{align-items:start;padding-bottom:26px;margin-bottom:36px}.section-head h2{font-size:clamp(2.2rem,4vw,3.6rem);letter-spacing:-.035em;line-height:1.1;max-width:460px}.section-head p{font-size:1rem;max-width:430px}.controls{gap:10px}input,select{background:transparent;padding:15px;border-color:var(--line);border-radius:0}input:focus,select:focus{outline:2px solid var(--accent2);outline-offset:3px}.grid{gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}.card{position:relative;border:0;border-bottom:1px solid var(--line);border-right:1px solid var(--line);background:transparent;padding:32px;min-height:310px;transition:background .25s,transform .25s}.card:hover{background:#e7e9de;box-shadow:none;transform:none}.card:focus-visible{outline:3px solid var(--accent);outline-offset:-4px}.card .num{font-size:.68rem;color:var(--accent)}.card h3{font-weight:400;font-size:1.8rem;line-height:1.15;letter-spacing:-.02em;margin:28px 0 20px}.card p{font-size:.97rem}.card:after{content:'Explorar ↗';display:block;margin-top:26px;font:11px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2)}.band{background:#19372e;padding:0}.band-inner{max-width:1260px;padding:100px 5vw}.band h2{font-size:clamp(2.4rem,4.5vw,4.3rem);line-height:1.08;letter-spacing:-.03em;margin:25px 0}.band p{max-width:520px}.two-col{align-items:center;gap:75px}.quote{font-size:1.65rem;border-color:#b99772;color:#e5ded0;padding-left:32px}.archive{gap:32px}.archive-item{padding:26px 0;border-color:var(--accent)}.archive-item strong{font-size:1.3rem;font-weight:400}.archive-item span{display:block;font-size:.97rem}footer{text-align:left;padding:40px 5vw;background:#e7e9df;font-size:.75rem}.modal-box{padding:45px;box-shadow:0 20px 100px #0005}.modal-box h2{line-height:1.15;margin-top:20px}.close{color:var(--ink)}.empty{font:15px Arial,sans-serif;padding:24px 0;color:var(--muted)}.reveal{transition:opacity .65s,transform .65s}.js .reveal.pending{opacity:0;transform:translateY(22px)}
+@media(max-width:800px){.nav{padding:16px 6vw;gap:12px}.brand{font-size:.65rem;max-width:160px}nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}nav a{margin:0;font-size:.65rem}.hero{min-height:78vh;padding:65px 6vw}.hero h1{font-size:clamp(3rem,10vw,5rem)}.hero p{font-size:1rem}.hero-foot{font-size:9px;margin-top:40px}.section-head{flex-direction:column;gap:20px}.grid,.archive,.two-col{grid-template-columns:1fr}.card{min-height:240px;padding:28px}.band-inner,section{padding:65px 6vw}.two-col{gap:35px}.quote{font-size:1.3rem}.controls input{min-width:0;width:100%}.controls select{width:100%}.modal{padding:15px}.modal-box{padding:25px}.hero:after{font-size:100px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.js .reveal.pending{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">AFROARGENTINOS Y HISTORIA ARGENTINA</div>
+    <nav>
+      <a href="#investigacion">Investigación</a>
+      <a href="#proyecto">El proyecto</a>
+      <a href="#fuentes">Fuentes y archivo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="kicker">Investigación histórica · Memoria · Ciudadanía</div>
+      <h1>Los afroargentinos en la historia argentina</h1>
+      <p>
+        Un espacio dedicado a investigar, documentar y difundir la presencia afroargentina
+        en la construcción histórica, cultural y social del país.
+      </p>
+      <a class="cta" href="#investigacion">Explorar las líneas de investigación ↗</a>
+      <div class="hero-foot">Historia · Cultura · Presencia afroargentina</div>
+    </div>
+  </section>
+
+  <section id="investigacion">
+    <div class="section-head">
+      <h2>Líneas de investigación</h2>
+      <p>Seis recorridos para reconstruir presencias, trayectorias y memorias que durante mucho tiempo quedaron relegadas del relato nacional.</p>
+    </div>
+
+    <div class="controls">
+      <input aria-label="Buscar líneas de investigación" id="search" type="search" placeholder="Buscar por tema o palabra clave…">
+      <select aria-label="Filtrar por tema" id="filter">
+        <option value="all">Todos los temas</option>
+        <option value="sociedad">Sociedad</option>
+        <option value="politica">Política</option>
+        <option value="cultura">Cultura</option>
+        <option value="memoria">Memoria</option>
+      </select>
+    </div>
+
+    <p id="empty" class="empty" hidden role="status">No se encontraron líneas de investigación. Probá otra palabra o categoría.</p>
+    <div class="grid" id="cards">
+      <article class="card reveal" tabindex="0" role="button" aria-haspopup="dialog" data-cat="sociedad memoria" data-title="Orígenes y vida cotidiana">
+        <div class="num">01 · SOCIEDAD</div>
+        <h3>Orígenes y vida cotidiana</h3>
+        <p>Presencia africana y afrodescendiente desde el período colonial, familias, oficios, barrios, redes y formas de sociabilidad.</p>
+      </article>
+      <article class="card reveal" tabindex="0" role="button" aria-haspopup="dialog" data-cat="politica" data-title="Independencia y ciudadanía">
+        <div class="num">02 · POLÍTICA</div>
+        <h3>Independencia y ciudadanía</h3>
+        <p>Participación militar y política en las guerras de independencia y en la formación de la ciudadanía argentina.</p>
+      </article>
+      <article class="card reveal" tabindex="0" role="button" aria-haspopup="dialog" data-cat="cultura" data-title="Música y expresiones culturales">
+        <div class="num">03 · CULTURA</div>
+        <h3>Música y expresiones culturales</h3>
+        <p>Candombe, música, danza, carnaval y otras expresiones que forman parte del patrimonio cultural argentino.</p>
+      </article>
+      <article class="card reveal" tabindex="0" role="button" aria-haspopup="dialog" data-cat="politica sociedad" data-title="Prensa y asociaciones">
+        <div class="num">04 · SOCIEDAD</div>
+        <h3>Prensa y asociaciones</h3>
+        <p>Periódicos, sociedades de ayuda mutua, organizaciones comunitarias y espacios de intervención pública afroporteña.</p>
+      </article>
+      <article class="card reveal" tabindex="0" role="button" aria-haspopup="dialog" data-cat="memoria politica" data-title="Representaciones e invisibilización">
+        <div class="num">05 · MEMORIA</div>
+        <h3>Representaciones e invisibilización</h3>
+        <p>Cómo se construyeron los imaginarios de una Argentina “blanca” y qué mecanismos desplazaron la presencia afro del relato nacional.</p>
+      </article>
+      <article class="card reveal" tabindex="0" role="button" aria-haspopup="dialog" data-cat="memoria sociedad" data-title="Biografías y memoria familiar">
+        <div class="num">06 · MEMORIA</div>
+        <h3>Biografías y memoria familiar</h3>
+        <p>Historias de vida, genealogías, documentos y memorias familiares que permiten recuperar nombres y trayectorias individuales.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="band" id="proyecto">
+    <div class="band-inner two-col">
+      <div>
+        <div class="kicker" style="color:#d8a796">El proyecto</div>
+        <h2>Investigar para volver a hacer visible</h2>
+        <p>
+          Afroargentinos y Historia Argentina propone reunir investigación histórica,
+          fuentes documentales y divulgación para contribuir a una lectura más completa
+          de la historia nacional.
+        </p>
+      </div>
+      <div class="quote">
+        La presencia afroargentina no constituye un episodio marginal: forma parte de los procesos sociales, políticos y culturales que dieron forma a la Argentina.
+      </div>
+    </div>
+  </section>
+
+  <section id="fuentes">
+    <div class="section-head">
+      <h2>Fuentes y archivo</h2>
+      <p>Documentación histórica, publicaciones y materiales para sostener una investigación abierta, verificable y en permanente desarrollo.</p>
+    </div>
+    <div class="archive">
+      <div class="archive-item"><strong>Documentos históricos</strong><span>Censos, padrones, registros militares, judiciales, parroquiales y administrativos.</span></div>
+      <div class="archive-item"><strong>Prensa afroporteña</strong><span>Periódicos y publicaciones producidas por comunidades afroargentinas durante el siglo XIX.</span></div>
+      <div class="archive-item"><strong>Biografías y genealogías</strong><span>Trayectorias personales y familiares reconstruidas a partir de fuentes primarias y secundarias.</span></div>
+    </div>
+  </section>
+<section id="contacto"><div class="section-head"><h2>Contacto</h2><p>Consultas, propuestas y aportes documentales sobre historia afroargentina.</p></div><p>Responsable del proyecto: Oscar Oliveira.</p><p>Correo electrónico: <a href="mailto:oliveirao@gmail.com">oliveirao@gmail.com</a></p><p><a href="https://www.facebook.com/profile.php?id=61596243590397" target="_blank" rel="noopener noreferrer">Página de Afroargentinos en Facebook ↗</a></p><p>Este sitio presenta las líneas de trabajo del proyecto. Los documentos y las publicaciones se incorporarán de manera progresiva.</p></section>
+<section id="privacidad"><div class="section-head"><h2>Privacidad</h2><p>Información sobre el contacto y el uso de datos en este sitio.</p></div><p>Esta página no incluye formularios, herramientas de analítica ni cookies propias. El proveedor de alojamiento puede procesar datos técnicos de las visitas según sus políticas.</p><p>Si nos escribís por correo electrónico, utilizaremos los datos que compartas para atender tu consulta. No envíes documentación personal sensible que no sea necesaria. Podés solicitar la eliminación de tus comunicaciones o consultar sobre tus datos escribiendo a oliveirao@gmail.com.</p><p>Los enlaces a Facebook y otros servicios externos se rigen por las políticas de esos proveedores. El canal automatizado de WhatsApp todavía no está habilitado; antes de su puesta en funcionamiento se actualizará esta información para describir el procesamiento de mensajes y los proveedores que intervengan.</p><p>Actualización: 28 de octubre de 2026.</p></section></main>
+
+<footer>
+  Afroargentinos y Historia Argentina · Proyecto de investigación y divulgación histórica · <a href="#privacidad">Privacidad</a> · <a href="#contacto">Contacto</a>
+</footer>
+
+<div class="modal" id="modal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="close" aria-label="Cerrar">&times;</button>
+    <div class="kicker">Línea de investigación</div>
+    <h2 id="modal-title"></h2>
+    <p id="modal-text"></p>
+  </div>
+</div>
+
+<script>
+const search = document.getElementById('search');
+const filter = document.getElementById('filter');
+const cards = [...document.querySelectorAll('.card')];
+
+function applyFilters(){
+  const q = search.value.toLowerCase().trim();
+  const f = filter.value;
+  cards.forEach(card=>{
+    const hay = (card.innerText + ' ' + card.dataset.title).toLowerCase();
+    const cat = card.dataset.cat;
+    card.style.display = hay.includes(q) && (f === 'all' || cat.includes(f)) ? '' : 'none';
+  });
+  document.getElementById('empty').hidden = cards.some(card => card.style.display !== 'none');
+}
+search.addEventListener('input', applyFilters);
+filter.addEventListener('change', applyFilters);
+
+const modal = document.getElementById('modal');
+const mt = document.getElementById('modal-title');
+const mp = document.getElementById('modal-text');
+const detail = {
+  "Orígenes y vida cotidiana":"Esta línea reúne investigaciones sobre población afrodescendiente en el Río de la Plata, condiciones de vida, oficios, vínculos familiares, barrios, cofradías y redes sociales.",
+  "Independencia y ciudadanía":"Analiza la participación de afroargentinos en milicias y ejércitos, su presencia en las guerras revolucionarias y las tensiones entre servicio militar, libertad, derechos y ciudadanía.",
+  "Música y expresiones culturales":"Aborda prácticas musicales y festivas, el candombe, el carnaval y las diversas formas de producción cultural afroargentina.",
+  "Prensa y asociaciones":"Estudia la prensa afroporteña y las asociaciones comunitarias como espacios de organización, debate, solidaridad y construcción de identidad.",
+  "Representaciones e invisibilización":"Examina los relatos, imágenes y políticas culturales que contribuyeron a minimizar o negar la presencia afroargentina dentro de la narrativa nacional.",
+  "Biografías y memoria familiar":"Recupera historias individuales y familiares para reconstruir experiencias concretas y devolver nombres propios a procesos históricos frecuentemente narrados de modo anónimo."
+};
+let activeCard;
+function openDetail(card){
+ activeCard=card;
+ mt.textContent=card.dataset.title;
+ mp.textContent=detail[card.dataset.title] || '';
+ modal.classList.add('open');
+ document.body.style.overflow='hidden';
+ document.querySelector('.close').focus();
+}
+function closeDetail(){modal.classList.remove('open');document.body.style.overflow='';activeCard?.focus();}
+cards.forEach(card=>{card.addEventListener('click',()=>openDetail(card));card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openDetail(card);}});});
+document.querySelector('.close').onclick=closeDetail;
+modal.addEventListener('click',e=>{if(e.target===modal)closeDetail();});
+document.addEventListener('keydown',e=>{if(!modal.classList.contains('open'))return;if(e.key==='Escape')closeDetail();if(e.key==='Tab'){e.preventDefault();document.querySelector('.close').focus();}});
+if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+ document.documentElement.classList.add('js');
+ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.remove('pending');observer.unobserve(entry.target);}}),{threshold:.08});
+ document.querySelectorAll('.reveal').forEach(el=>{el.classList.add('pending');observer.observe(el);});
+}
+</script>
+</body>
+</html>
